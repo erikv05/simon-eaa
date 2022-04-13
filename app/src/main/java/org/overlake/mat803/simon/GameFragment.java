@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,7 +27,7 @@ public class GameFragment extends Fragment {
     public GameFragment() {
         mSequence = new ArrayList<>();
         mSounds = new EnumMap<Button, Integer>(Button.class);
-        mSequenceLength = 4;
+        mSequenceLength = 1;
     }
 
     @Override
@@ -45,6 +46,7 @@ public class GameFragment extends Fragment {
             @Override
             public void onTick(long l) {
                 mSoundPool.play(mSounds.get(mSequence.get(index)),1.0f,1.0f,1,0, 1.0f);
+                changeColor(mSequence.get(index));
                 index++;
             }
 
@@ -67,6 +69,28 @@ public class GameFragment extends Fragment {
     private void buildSequence(int sequenceLength) {
         for (int i = 0; i < sequenceLength; i++) {
             mSequence.add(Button.getRandomButton());
+        }
+    }
+
+    private void changeColor(Button b) {
+        ImageView button;
+        switch(b) {
+            case RED:
+                button = (ImageView) getActivity().findViewById(R.id.red);
+                button.setImageResource(R.drawable.ic_red_dark);
+                //button.setImageResource(R.drawable.ic_red);
+            case YELLOW:
+                button = (ImageView) getActivity().findViewById(R.id.yellow);
+                button.setImageResource(R.drawable.ic_yellow_dark);
+                //button.setImageResource(R.drawable.ic_yellow);
+            case GREEN:
+                button = (ImageView) getActivity().findViewById(R.id.green);
+                button.setImageResource(R.drawable.ic_green_dark);
+                //button.setImageResource(R.drawable.ic_green);
+            case BLUE:
+                button = (ImageView) getActivity().findViewById(R.id.blue);
+                button.setImageResource(R.drawable.ic_blue_dark);
+                //button.setImageResource(R.drawable.ic_blue);
         }
     }
 
