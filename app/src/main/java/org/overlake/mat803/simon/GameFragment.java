@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,8 +31,7 @@ public class GameFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mSoundPool = new SoundPool.Builder().build();
         mSounds.put(Button.GREEN, mSoundPool.load(getContext(),R.raw.tone415,1));
         mSounds.put(Button.RED, mSoundPool.load(getContext(),R.raw.tone310,1));
@@ -45,7 +45,6 @@ public class GameFragment extends Fragment {
             @Override
             public void onTick(long l) {
                 mSoundPool.play(mSounds.get(mSequence.get(index)),1.0f,1.0f,1,0, 1.0f);
-                index++;
             }
 
             @Override
