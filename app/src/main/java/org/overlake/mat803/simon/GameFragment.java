@@ -79,18 +79,22 @@ public class GameFragment extends Fragment {
                 button = (ImageView) getActivity().findViewById(R.id.red);
                 button.setImageResource(R.drawable.ic_red_dark);
                 //button.setImageResource(R.drawable.ic_red);
+                break;
             case YELLOW:
                 button = (ImageView) getActivity().findViewById(R.id.yellow);
                 button.setImageResource(R.drawable.ic_yellow_dark);
                 //button.setImageResource(R.drawable.ic_yellow);
+                break;
             case GREEN:
                 button = (ImageView) getActivity().findViewById(R.id.green);
                 button.setImageResource(R.drawable.ic_green_dark);
                 //button.setImageResource(R.drawable.ic_green);
+                break;
             case BLUE:
                 button = (ImageView) getActivity().findViewById(R.id.blue);
                 button.setImageResource(R.drawable.ic_blue_dark);
                 //button.setImageResource(R.drawable.ic_blue);
+                break;
         }
     }
 
