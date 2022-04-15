@@ -3,6 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome">Welcome to Simon</string>
-    <string name="explanation">Simon is a game about memorization. When you play, the lights on the device will flash in a random sequence. Initially, the lights will only flash once, but one more flash will occur with each turn. Your job is to remember the sequence in which these lights appear and recreate this sequence when it is your turn. Press the buttons in the same order they appeared and, after each turn, you will get one point. Your goal is to score as many points as possible.</string>
+    <string name="explanation">Simon is a game about memorization. When you play, the lights on the device will flash in a random sequence. Initially, the lights will only flash once, but one more flash will occur with each turn. Your job is to remember the sequence in which these lights appear and recreate this sequence when it is your turn. Press the buttons in the same order they appeared. Your goal is to correctly recall the longest sequence possible.</string>
     <string name="ready">Ready?</string>
+    <string name="simon">Simon</string>
+    <string name="gameOver">Game Over</string>
+    <string name="highScore">High Score:</string>
+    <string name="again">Again?</string>
 </resources>
