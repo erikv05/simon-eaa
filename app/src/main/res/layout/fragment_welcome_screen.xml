@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".WelcomeScreen">
 
     <TextView
@@ -25,9 +26,9 @@
         android:id="@+id/explanationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:lineSpacingExtra="8sp"
         android:text="@string/explanation"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +49,10 @@
 
     <Button
         android:id="@+id/readyButton"
-        android:layout_width="150sp"
-        android:layout_height="80sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="true"
+        android:padding="10dp"
         android:text="@string/ready"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
