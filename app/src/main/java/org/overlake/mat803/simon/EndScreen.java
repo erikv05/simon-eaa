@@ -31,7 +31,7 @@ public class EndScreen extends Fragment {
         mBinding.playAgain.setOnClickListener(view -> {
             NavHostFragment.findNavController(this).navigate(R.id.action_endScreen_to_gameFragment2);
         });
-
+        mBinding.score.setText(String.valueOf(getArguments().getInt("score")));
         return mBinding.getRoot();
     }
 }

@@ -49,10 +49,7 @@ public class GameFragment extends Fragment {
         mSounds.put(Button.YELLOW, mSoundPool.load(getContext(),R.raw.tone252,1));
         mSounds.put(Button.BLUE, mSoundPool.load(getContext(),R.raw.tone209,1));
 
-        //i incremented this by 5 just for a test
-        for (int i = 0; i < 3; i++) {
-            incrementSequence();
-        }
+        incrementSequence();
         FragmentGameBinding binding = FragmentGameBinding.inflate(inflater);
 
         CountDownTimer timer = new CountDownTimer(1000L * mSequenceLength,1000) {
@@ -149,7 +146,9 @@ public class GameFragment extends Fragment {
     }
 
     private void gameOver(){
-        NavHostFragment.findNavController(this).navigate(R.id.action_gameFragment2_to_endScreen);
+        Bundle bundle = new Bundle();
+        bundle.putInt("score", mSequenceLength);
+        NavHostFragment.findNavController(this).navigate(R.id.action_gameFragment2_to_endScreen, bundle);
     }
 
     private void buttonCalled(Button b, int i){

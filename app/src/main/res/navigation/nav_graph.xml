@@ -29,5 +29,9 @@
         <action
             android:id="@+id/action_endScreen_to_gameFragment2"
             app:destination="@id/gameFragment2" />
+        <argument
+            android:name="Score"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>
