@@ -83,7 +83,7 @@ public class GameFragment extends Fragment {
         binding.green.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mStart) {
+                if(mStart&&mPlaying) {
                     int i = getIndex();
                     buttonCalled(Button.GREEN, i);
                     if(i+1>=mSequenceLength){
@@ -95,7 +95,7 @@ public class GameFragment extends Fragment {
         binding.blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mStart) {
+                if(mStart&&mPlaying) {
                         int i = getIndex();
                         buttonCalled(Button.BLUE, i);
                         if(i+1>=mSequenceLength){
@@ -107,7 +107,7 @@ public class GameFragment extends Fragment {
         binding.yellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mStart) {
+                if(mStart&&mPlaying) {
                     int i = getIndex();
                     buttonCalled(Button.YELLOW, i);
                     if(i+1>=mSequenceLength){
@@ -119,7 +119,7 @@ public class GameFragment extends Fragment {
         binding.red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mStart) {
+                if(mStart&&mPlaying) {
                     int i = getIndex();
                     buttonCalled(Button.RED, i);
                     if(i+1>=mSequenceLength){
