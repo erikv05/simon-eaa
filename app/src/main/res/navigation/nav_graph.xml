@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeScreen">
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="org.overlake.mat803.simon.WelcomeScreen"
+        android:label="fragment_welcome_screen"
+        tools:layout="@layout/fragment_welcome_screen" >
+        <action
+            android:id="@+id/action_welcomeScreen_to_gameFragment2"
+            app:destination="@id/gameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment2"
+        android:name="org.overlake.mat803.simon.GameFragment"
+        android:label="GameFragment" >
+        <action
+            android:id="@+id/action_gameFragment2_to_endScreen"
+            app:destination="@id/endScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/endScreen"
+        android:name="org.overlake.mat803.simon.EndScreen"
+        android:label="fragment_end_screen"
+        tools:layout="@layout/fragment_end_screen" >
+        <action
+            android:id="@+id/action_endScreen_to_gameFragment2"
+            app:destination="@id/gameFragment2" />
+        <argument
+            android:name="Score"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
