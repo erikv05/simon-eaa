@@ -30,7 +30,7 @@ public class GameFragment extends Fragment {
     public GameFragment() {
         mSequence = new ArrayList<>();
         mSounds = new EnumMap<Button, Integer>(Button.class);
-        mSequenceLength = 1;
+        mSequenceLength = 0;
     }
 
     @Override
@@ -40,7 +40,11 @@ public class GameFragment extends Fragment {
         mSounds.put(Button.RED, mSoundPool.load(getContext(),R.raw.tone310,1));
         mSounds.put(Button.YELLOW, mSoundPool.load(getContext(),R.raw.tone252,1));
         mSounds.put(Button.BLUE, mSoundPool.load(getContext(),R.raw.tone209,1));
-        buildSequence(mSequenceLength);
+
+        //i incremented this by 5 just for a test
+        for (int i = 0; i < 5; i++) {
+            incrementSequence();
+        }
 
         CountDownTimer timer = new CountDownTimer(1000L * mSequenceLength,1000) {
 
@@ -48,10 +52,8 @@ public class GameFragment extends Fragment {
             @Override
             public void onTick(long l) {
                 mSoundPool.play(mSounds.get(mSequence.get(index)),1.0f,1.0f,1,0, 1.0f);
-
                 changeColor(mSequence.get(index));
                 index++;
-
             }
 
             @Override
@@ -63,17 +65,16 @@ public class GameFragment extends Fragment {
         binding.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timer.start();
+                    timer.start();
             }
         });
 
         return binding.getRoot();
     }
 
-    private void buildSequence(int sequenceLength) {
-        for (int i = 0; i < sequenceLength; i++) {
+    private void incrementSequence() {
             mSequence.add(Button.getRandomButton());
-        }
+            mSequenceLength++;
     }
 
     private void changeColor(Button b) {
@@ -82,24 +83,48 @@ public class GameFragment extends Fragment {
             case RED:
                 button = (ImageView) getActivity().findViewById(R.id.red);
                 button.setImageResource(R.drawable.ic_red_dark);
-                //button.setImageResource(R.drawable.ic_red);
                 break;
             case YELLOW:
                 button = (ImageView) getActivity().findViewById(R.id.yellow);
                 button.setImageResource(R.drawable.ic_yellow_dark);
-                //button.setImageResource(R.drawable.ic_yellow);
                 break;
             case GREEN:
                 button = (ImageView) getActivity().findViewById(R.id.green);
                 button.setImageResource(R.drawable.ic_green_dark);
-                //button.setImageResource(R.drawable.ic_green);
                 break;
             case BLUE:
                 button = (ImageView) getActivity().findViewById(R.id.blue);
                 button.setImageResource(R.drawable.ic_blue_dark);
-                //button.setImageResource(R.drawable.ic_blue);
                 break;
+            default:
+                button = (ImageView) getActivity().findViewById(R.id.blue);
+                button.setImageResource(R.drawable.ic_blue_dark);
         }
-    }
+        CountDownTimer timer = new CountDownTimer(250L,250) {
 
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                switch (b) {
+                    case RED:
+                        button.setImageResource(R.drawable.ic_red);
+                        break;
+                    case BLUE:
+                        button.setImageResource(R.drawable.ic_blue);
+                        break;
+                    case YELLOW:
+                        button.setImageResource(R.drawable.ic_yellow);
+                        break;
+                    case GREEN:
+                        button.setImageResource(R.drawable.ic_green);
+                        break;
+                }
+            }
+        };
+        timer.start();
+    }
 }
