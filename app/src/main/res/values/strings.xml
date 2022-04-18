@@ -9,4 +9,5 @@
     <string name="gameOver">Game Over</string>
     <string name="highScore">High Score:</string>
     <string name="again">Again?</string>
+    <string name="play">Play</string>
 </resources>
