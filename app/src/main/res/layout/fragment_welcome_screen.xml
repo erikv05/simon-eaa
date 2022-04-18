@@ -22,18 +22,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/explanationText"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="@string/explanation"
-        android:textSize="24sp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/readyButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bar" />
+        app:layout_constraintTop_toBottomOf="@+id/bar">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/explanationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/explanation"
+                android:textSize="24sp" />
+        </FrameLayout>
+    </ScrollView>
 
     <FrameLayout
         android:id="@+id/bar"
