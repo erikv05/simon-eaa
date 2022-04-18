@@ -31,6 +31,8 @@ public class GameFragment extends Fragment {
     private boolean mPlaying;
     private boolean mStart;
     private int currIndex;
+    private FragmentGameBinding mBinding;
+
 
     public GameFragment() {
         mSequence = new ArrayList<>();
@@ -50,7 +52,7 @@ public class GameFragment extends Fragment {
         mSounds.put(Button.BLUE, mSoundPool.load(getContext(),R.raw.tone209,1));
 
         incrementSequence();
-        FragmentGameBinding binding = FragmentGameBinding.inflate(inflater);
+        mBinding = FragmentGameBinding.inflate(inflater);
 
         CountDownTimer timer = new CountDownTimer(1000L * mSequenceLength,1000) {
             int index = 0;
@@ -71,7 +73,7 @@ public class GameFragment extends Fragment {
             }
         };
 
-        binding.play.setOnClickListener(new View.OnClickListener() {
+        mBinding.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mPlaying) {
@@ -80,7 +82,7 @@ public class GameFragment extends Fragment {
             }
         });
 
-        binding.green.setOnClickListener(new View.OnClickListener() {
+        mBinding.green.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mStart&&mPlaying) {
@@ -92,7 +94,7 @@ public class GameFragment extends Fragment {
                 }
             }
         });
-        binding.blue.setOnClickListener(new View.OnClickListener() {
+        mBinding.blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mStart&&mPlaying) {
@@ -104,7 +106,7 @@ public class GameFragment extends Fragment {
                 }
             }
         });
-        binding.yellow.setOnClickListener(new View.OnClickListener() {
+        mBinding.yellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mStart&&mPlaying) {
@@ -116,7 +118,7 @@ public class GameFragment extends Fragment {
                 }
             }
         });
-        binding.red.setOnClickListener(new View.OnClickListener() {
+        mBinding.red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mStart&&mPlaying) {
@@ -130,7 +132,7 @@ public class GameFragment extends Fragment {
         });
 
 
-        return binding.getRoot();
+        return mBinding.getRoot();
     }
 
     private void addIndex(){
@@ -197,19 +199,19 @@ public class GameFragment extends Fragment {
         ImageView button;
         switch(b) {
             case RED:
-                button = (ImageView) getActivity().findViewById(R.id.red);
+                button = mBinding.red;
                 button.setImageResource(R.drawable.ic_red_dark);
                 break;
             case YELLOW:
-                button = (ImageView) getActivity().findViewById(R.id.yellow);
+                button = mBinding.yellow;
                 button.setImageResource(R.drawable.ic_yellow_dark);
                 break;
             case GREEN:
-                button = (ImageView) getActivity().findViewById(R.id.green);
+                button = mBinding.green;
                 button.setImageResource(R.drawable.ic_green_dark);
                 break;
             case BLUE:
-                button = (ImageView) getActivity().findViewById(R.id.blue);
+                button = mBinding.blue;
                 button.setImageResource(R.drawable.ic_blue_dark);
                 break;
             default:
